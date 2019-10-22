@@ -1,9 +1,10 @@
 import glob
 import os
 
-print('Начало выполнения программы\n\n')
-for unit in glob.glob("/Users/yaroslav/**/*", recursive=True):
-    if unit.startswith('КЛЮЧЕВАЯ ФРАЗА КОТОРУЮ НАДО УДАЛИТЬ '):
+for unit in glob.glob("/Users/UserName/YourDirectory/SomeFolder/**/*", recursive=True):
+    if 'line we need to change ' in unit:
         print(unit)
-    os.rename(unit, unit.replace('КЛЮЧЕВАЯ ФРАЗА КОТОРУЮ НАДО УДАЛИТЬ ', ''))
-print('\n\nВыполнение переименования закончено. Программа завершена.')
+        os.rename(unit, unit.replace('line we need to change ', 'new line (usually left empty)'))
+
+# We put /**/* to scan through an every folder and a file inside them
+# New line I usually left empty, just to delete 'line I need to change' from file name 
